@@ -1,0 +1,67 @@
+[
+    {
+        "id":1,
+        "nombre":"Tickets",
+        "url": "",
+        "hijos":[{
+            "id":1.1,
+            "nombre":"Crear Ticket",
+            "url": "tickets/crearTicket.php",
+            "hijos":[],
+            "user_Allowed":[1,2]
+        },
+        {
+            "id":1.2,
+            "nombre":"Adminstrar tickets",
+            "url": "tickets/administrarTickets.php",
+            "hijos":[],
+            "user_Allowed":[1]
+        },
+        {
+            "id":1.3,
+            "nombre":"Mis tickets",
+            "url": "tickets/misTickets.php",
+            "hijos":[],
+            "user_Allowed":[1, 2]
+        }
+      ],
+            "user_Allowed":[1, 2]
+    },
+    {
+        "id":2,
+        "nombre":"Mi Perfil",
+        "url": "perfil.php",
+        "hijos":[],
+        "user_Allowed":[1,2]
+    },
+    {
+        "id":3,
+        "nombre":"Mantenimiento",
+        "url": "",
+        "hijos":[{
+            "id":3.1,
+            "nombre":"Crear Usuario",
+            "url": "mantenimiento/crearUsuario.php",
+            "hijos":[],
+            "user_Allowed":[1]
+        },
+        {
+            "id":3.2,
+            "nombre":"Editar Usuario",
+            "url": "mantenimiento/editarUsuario.php",
+            "hijos":[],
+            "user_Allowed":[1]
+        }
+        ],
+        "user_Allowed": [1]
+    },
+    {
+
+        "id":4,
+        "nombre":"Cerrar Sesion",
+        "url": "cerrarSesion.php",
+        "hijos":[],
+        "user_Allowed":[1,2]
+
+    }
+]
