@@ -5,7 +5,7 @@ class Conexion {
     private $conn; 
     private $servername = "localhost";
     private $username = "root";
-    private $password = "cris";
+    private $password = "";
     private $dbname = "help_desk";
     private $port = "3306";
 

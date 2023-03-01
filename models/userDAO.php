@@ -13,7 +13,7 @@
  
          function registrarNuevoUsuario($usuario){
  
-             $stmt = $this->conn->get_conexion()->prepare("INSERT INTO usuarios (nombre, apellido , username, pass, departamento, puesto, rol) VALUES (:nombre, :apellido, :username, :pass, :departamento,puesto, :rol)");
+             $stmt = $this->conn->get_conexion()->prepare("INSERT INTO usuarios (nombre, apellido , username, pass, departamento, puesto, rol) VALUES (:nombre, :apellido, :username, :pass, :departamento,:puesto, :rol)");
  
              $stmt->bindParam(":nombre", $nombre); 
              $stmt->bindParam(':apellido', $apellido);
@@ -26,7 +26,7 @@
              $nombre = $usuario->get_nombre(); 
              $apellido = $usuario->get_apellido(); 
              $username = $usuario->get_username(); 
-             $pass = password_hash($usuario->getPass(), PASSWORD_DEFAULT); 
+             $pass = password_hash($usuario->get_pass(), PASSWORD_DEFAULT); 
              $departamento = $usuario->get_departamento(); 
              $puesto = $usuario->get_puesto(); 
              $rol = $usuario->get_rol(); 
@@ -37,23 +37,18 @@
  
          }
  
-         function buscarUsuario($id, $password){
+         function buscarUsuario($id){
             
-            $stmt = $this->conn->get_conexion()->prepare("SELECT id_usuario, nombre, apellido,  d.nombre_departamento as departamento , p.nombre_puesto as puesto ,rol from usuarios u 
+            $stmt = $this->conn->get_conexion()->prepare("SELECT id_usuario, nombre, apellido,pass,  d.nombre_departamento as departamento , p.nombre_puesto as puesto ,rol from usuarios u 
             inner join departamentos d on d.id_departamento = u.departamento
-            inner join puestos p on p.id_puesto = u.puesto WHERE username = :username and pass = :pass;");
-             //$stmt = $this->conn->get_conexion()->prepare("SELECT * FROM usuarios WHERE username = :username and pass = :pass");
+            inner join puestos p on p.id_puesto = u.puesto WHERE username = :username");
  
              $stmt->bindParam(':username', $username);
-             $stmt->bindParam(':pass', $pass);
  
-             $username =$id; 
-             $pass = $password; 
-             
+             $username =$id;              
              $stmt->execute();
  
              $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
- 
              $registro = $stmt->fetch();  
              $this->conn->cerrar_conexion();
  

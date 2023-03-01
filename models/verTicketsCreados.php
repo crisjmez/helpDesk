@@ -18,9 +18,7 @@
     }
 
     function actualizarEstado($estate, $id){
-
-
-         
+ 
         $conn = new Conexion();
 
         $stmt = $conn->get_conexion()->prepare("UPDATE tickets set estado = :estado where id_ticket = :id_P");

@@ -1,24 +1,24 @@
 const ul = document.querySelector("ul");
 const iframe =  document.querySelector("iframe");
-const fetchRol = async ()=>{
+
+const fetchUser = async ()=>{
 
     let res = await  fetch("../data/UserFetch.php");
     let data = await res.text();
     let jsonData = JSON.parse(data);
     
     return jsonData;
-
 } ;
 
 const menu = async ()=>{
 
-   
-    let rol =  await fetchRol();
+    let user =  await fetchUser();
     let menuData = await fetch("../data/menu.json");
     let data = await menuData.json();
+   // console.log(rol);
 
     data.map(item =>{
-        if(item.user_Allowed.includes(Number(rol.rol))){
+        if(item.user_Allowed.includes(Number(user.rol))){
             if(item.hijos.length == 0){
                 let li = document.createElement("li");
                 let a = document.createElement("a");
@@ -47,17 +47,18 @@ const menu = async ()=>{
                 p.textContent = item.nombre;
                 li.append(p);
                 item.hijos.map((itemCh)=>{
-                    let li2 = document.createElement("li");
-                    let a = document.createElement("a");
-                    a.textContent = itemCh.nombre;
-                    a.href = "#";
-                    a.addEventListener('click', (e)=>{
-                        e.preventDefault()
-                        iframe.src = itemCh.url;
-                    })
-                    li2.append(a);
-                    ulCh.append(li2);
- 
+                    if(itemCh.user_Allowed.includes(Number(user.rol))){
+                        let li2 = document.createElement("li");
+                        let a = document.createElement("a");
+                        a.textContent = itemCh.nombre;
+                        a.href = "#";
+                        a.addEventListener('click', (e)=>{
+                            e.preventDefault()
+                            iframe.src = itemCh.url;
+                        })
+                        li2.append(a);
+                        ulCh.append(li2);
+                    }
                 });
                 li.append(ulCh);
                 ul.append(li);
@@ -65,7 +66,7 @@ const menu = async ()=>{
         }
 
         
-    })
+    });
 
 };
 

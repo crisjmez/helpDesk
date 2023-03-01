@@ -25,12 +25,12 @@
             "user_Allowed":[1, 2]
         }
       ],
-            "user_Allowed":[1, 2]
+        "user_Allowed":[1, 2]
     },
     {
         "id":2,
         "nombre":"Mi Perfil",
-        "url": "perfil.php",
+        "url": "perfil/perfil.php",
         "hijos":[],
         "user_Allowed":[1,2]
     },

@@ -16,13 +16,6 @@
     <title>Crear Tickets</title>
 </head>
 <body>
-    <div id="m-info">
-        <nav>
-            <ul>         
-
-            </ul>
-        </nav>
-    </div>
     <div id="grid-div">
         <h1 class="ticket-h1">Ticket</h1>
         <form action="../../controllers/validarTicket.php" class="Form" method="POST">

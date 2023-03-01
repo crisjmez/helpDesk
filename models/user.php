@@ -10,18 +10,18 @@
         private $username;
         private $pass;
         
-        public function __construct($nombre, $apellido, $departamento, $puesto, $rol, $username, $pass){
-            $this->$nombre= $nombre;
+        function __construct($nombre, $apellido, $departamento, $puesto, $rol, $username, $pass){
+            $this->nombre= $nombre;
             $this->apellido= $apellido;
-            $this->$departamento= $departamento;
-            $this->$puesto= $puesto;
-            $this->$rol= $rol;
-            $this->$username= $username;
-            $this->$pass= $pass;
+            $this->departamento= $departamento;
+            $this->puesto= $puesto;
+            $this->rol= $rol;
+            $this->username= $username;
+            $this->pass= $pass;
         }
 
         function get_nombre(){
-            return $this->$nombre;
+            return $this->nombre;
         }
 
         function get_apellido(){
@@ -30,23 +30,23 @@
 
         } function get_departamento(){
 
-            return  $this->$departamento;
+            return  $this->departamento;
 
         } function get_puesto(){
 
-            return  $this->$puesto;
+            return  $this->puesto;
 
         } function get_rol(){
 
-            return $this->$rol;
+            return $this->rol;
 
         } function get_username(){
 
-            return $this->$username;
+            return $this->username;
 
         } function get_pass(){
 
-            return $this->$pass;
+            return $this->pass;
 
         }
     }
