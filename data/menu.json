@@ -29,24 +29,17 @@
     },
     {
         "id":2,
-        "nombre":"Mi Perfil",
-        "url": "perfil/perfil.php",
-        "hijos":[],
-        "user_Allowed":[1,2]
-    },
-    {
-        "id":3,
         "nombre":"Mantenimiento",
         "url": "",
         "hijos":[{
-            "id":3.1,
+            "id":2.1,
             "nombre":"Crear Usuario",
             "url": "mantenimiento/crearUsuario.php",
             "hijos":[],
             "user_Allowed":[1]
         },
         {
-            "id":3.2,
+            "id":2.2,
             "nombre":"Editar Usuario",
             "url": "mantenimiento/editarUsuario.php",
             "hijos":[],
@@ -57,7 +50,7 @@
     },
     {
 
-        "id":4,
+        "id":3,
         "nombre":"Cerrar Sesion",
         "url": "cerrarSesion.php",
         "hijos":[],
