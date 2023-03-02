@@ -1,22 +1,13 @@
+import fetchUser from './fetch/fetchUser.js'
 const ul = document.querySelector("ul");
 const iframe =  document.querySelector("iframe");
-
-const fetchUser = async ()=>{
-
-    let res = await  fetch("../data/UserFetch.php");
-    let data = await res.text();
-    let jsonData = JSON.parse(data);
-    
-    return jsonData;
-} ;
 
 const menu = async ()=>{
 
     let user =  await fetchUser();
     let menuData = await fetch("../data/menu.json");
     let data = await menuData.json();
-   // console.log(rol);
-
+    
     data.map(item =>{
         if(item.user_Allowed.includes(Number(user.rol))){
             if(item.hijos.length == 0){
@@ -25,7 +16,7 @@ const menu = async ()=>{
                 a.textContent = item.nombre;
                 a.href = "#";
                 a.addEventListener('click', (e)=>{
-                    if(item.id === 4){
+                    if(item.id === 3){
                         a.href= `../controllers/${item.url}`;
                     }
                     else{

@@ -9,9 +9,5 @@ estado.forEach((item)=>{
 });
 
 
-const popUpsTickets = ()=>{
 
-    const btn = document.createElement('button');
-    
-}
 

@@ -41,6 +41,23 @@ require_once('../config/connection.php');
             $this->conn->cerrar_conexion();
         }
 
+        function buscar_tickets(){
+
+           $stmt = $this->conn->get_conexion()->prepare("SELECT t.id_ticket, t.problema, t.descripcion, 
+           u.nombre, u.apellido, d.nombre_departamento FROM tickets t inner join usuarios u on t.id_usuario = u.id_usuario 
+           inner join departamentos d on d.id_departamento = u.departamento
+           where t.estado = 1");
+       
+           $stmt->execute();
+   
+           $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+   
+           $registro = $stmt->fetchAll();  
+           $this->conn->cerrar_conexion();
+   
+           return $registro;
+       }
+
     }
 
 ?>

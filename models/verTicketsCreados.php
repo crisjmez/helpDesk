@@ -5,7 +5,8 @@
        
          $conn = new Conexion();
 
-        $stmt = $conn->get_conexion()->prepare("SELECT * FROM tickets t inner join usuarios u where t.id_usuario = u.id_usuario");
+        $stmt = $conn->get_conexion()->prepare("SELECT t.id_ticket, t.fecha_creacion, t.estado, t.problema, t.descripcion, 
+        u.nombre, u.apellido, t.fecha_cerrado FROM tickets t inner join usuarios u where t.id_usuario = u.id_usuario;");
     
         $stmt->execute();
 

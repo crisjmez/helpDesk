@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/index.css">
-    <title>Document</title>
+    <title>Home</title>
 </head>
 <body>
     <div id="p-info">
@@ -28,6 +28,9 @@
             ?>
         </h3>
     </div>
+    <div class="tickets-nuevos">
+    </div>
+    <script type="module" src="../js/ticketsNotification.js"></script>
 </body>
 </html>
 
