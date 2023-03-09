@@ -35,33 +35,57 @@ const popUpsTickets = async ()=>{
         let p_nombre = document.createElement('p');
         let p_departamento = document.createElement('p');
         let p_id = document.createElement('p');
+        let p_problema = document.createElement('p');
+        let p_descripcion = document.createElement('p');
+        let exit = document.createElement('i');
+        
 
-        p_id.innerHTML= item.id_ticket;
-        p_nombre.innerHTML= item.nombre + item.apellido;
-        p_departamento.innerHTML= item.nombre_departamento;
+
+        p_id.innerHTML= `<b>Numero del Ticket:
+        </b> ${item.id_ticket}`;
+        p_nombre.innerHTML= `<b>Nombre:</b> ${item.nombre}  ${item.apellido}`;
+        p_departamento.innerHTML= `<b>Departamento:</b> ${item.nombre_departamento}`;
+        p_problema.innerHTML = `<b>Problema:</b> ${item.problema}`;
+        p_descripcion.innerHTML= `<b>Descripcion del Problema:</b> ${item.descripcion}`;
+        exit.textContent = "X";
+
+        p_problema.style.display = 'none';
+        p_descripcion.style.display = 'none';
+        exit.style.fontSize = "bolder";
+        exit.style.display = 'none';
+        exit.style.float = 'right';
 
         section.addEventListener("click", (e)=>{
             const div = document.createElement('div');
             div.setAttribute('class', "moreDetails");
+            
+            p_problema.style.display = 'block';
+            p_descripcion.style.display = 'block';
+            exit.style.display = 'inline';
 
-            div.append(item.id_ticket);
-            div.append(item.nombre + item.apellido);
-            div.append( item.nombre_departamento)
-        
+            div.append(e.currentTarget);  
             document.body.appendChild(div);
             
+        });
+
+        exit.addEventListener("click", (ev)=>{
+            ev.currentTarget.parentElement.style.display = "none";
+            divTicketsNuevos.appendChild(section);
+            //ev.target.style.display = 'none';
+            p_problema.style.display = 'none';
+            p_descripcion.style.display = 'none';
         })
 
-
+        section.appendChild(exit);
         section.appendChild(p_id);
         section.appendChild(p_nombre);
         section.appendChild(p_departamento);
+        section.appendChild(p_problema);
+        section.appendChild(p_descripcion);
     
-        divTicketsNuevos.appendChild(section);
-
-        
+       // divTicketsNuevos.appendChild(section);
+        divTicketsNuevos.src = section;
     })
-
 }
 
 addEventListener("load", async ()=>{

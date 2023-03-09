@@ -28,8 +28,8 @@
             ?>
         </h3>
     </div>
-    <div class="tickets-nuevos">
-    </div>
+    <iframe class="tickets-nuevos">
+    </iframe>
     <script type="module" src="../js/ticketsNotification.js"></script>
 </body>
 </html>
