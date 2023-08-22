@@ -11,7 +11,6 @@
 <div id="divForm">
             <form class="Form" action="./controllers/validador.php" method="post">
                 <h1>Help Desk</h1>
-                <a href=""><img src="" id="logo" alt="icon"/></a>     
                 <label>Usuario</label>
                 <input type="text" id="username" name="username"/>
                 <label>Contraseña</label>

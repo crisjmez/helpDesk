@@ -3,10 +3,15 @@
     padding: 0;
     text-decoration: none;
     list-style: none;
-    background: #ccc;
     outline: none;
     box-sizing: border-box;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #3e3e3f;
+    scroll-behavior: smooth;
+}
+
+body{
+    background: #c9b29a;
 }
 
 .ticket-h1{
@@ -14,14 +19,7 @@
     margin-bottom: 1.5rem;
     position: relative;
 }
-a{
-    margin: 0 auto;
-    display:inline-block;
-    width: 100%;
-}
-img{
-    align-self: center;
-}
+
 form{
     display: flex;
     flex-direction: column;
@@ -33,6 +31,7 @@ form{
    border: 1px solid rgb(6, 6, 1);
    border-radius: 10px;
    align-items: center;
+   background: #e8d4c5;
 }
 
 input:not(input[type="submit"]), select, textarea{
@@ -48,42 +47,74 @@ input, select{
     width: 220px;
     border-radius:5px ;
     padding: 3px;
-    color: #000;
     text-align: center;
 }
 
+input[type="submit"]{
+    background-color: #c9b29a;
+    cursor: pointer;
+    padding: 5px;
+
+}
+
+input[type="submit"]:hover {
+    background-color: #e8d4c5;
+    cursor: pointer;
+    font: 1.1rem;
+    
+    
+}
+
+.menu-responsive{
+    display: none;
+}
 nav{
-    margin-top: 10px;
-    height: 30px;
+    height: fit-content;
+    height: 100%;
+    width: 100%;
 }
 
 nav > ul{
+    position: relative;
     display: flex;
     justify-content: center;
-    position: relative;
+    background-color: #e8d4c5;
+    height: 40px;
+    align-items: center;
+
+}
+
+nav > ul > li:not(:last-child){
+    border-right: 1px solid #3e3e3f;
 }
 
 
 li{
-    width: 150px;
-    height: 100%;
+    width: 250px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    background-color: #e8d4c5;
+}
+
+li  a:hover, li > p:hover{
+    border-bottom: 1px solid #838589;
+    color: #838589
 }
 
 .dropMenu_sub{
     display: none; 
-    height: 70px;
 }
 
-.dropMenu_sub li {
-    border: 1px solid black;
-    gap: 1px;
+.dropMenu_sub  li{
+    gap: 10px;
 }
 
 li:hover .dropMenu_sub{
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 1.3rem;
+    top: 2.1rem;
 }
 
 p,a, h2, h3, h1{
@@ -153,66 +184,60 @@ iframe{
     margin-top: 20px;
 }
 
-button{
-    padding: 3px;
-    border: none;
-    cursor: pointer;
+
+#notification{
+    position: absolute;
+    right: 2.2rem;
+    bottom: 3rem;
 }
 
 #btn-nuevo-tickets{
     position: relative;
     float: right;
-    border: 1px solid #f00;
-    background: #f00;
+    right: .5rem;
+    background-color: #e8d4c5;
     border-radius: 50%;
     top: 0;
-    padding: 5px;
+    padding: 10px;
+    display: none;
     
 }
 
-#btn-nuevo-tickets::after{
-    border: 1px solid #0f0;
-    background: #0f0;
+#no-tickets{
+    position: absolute;
+    left: 5.5rem;
+    bottom: 1.6rem;
+    background:#3e3e3f;
     border-radius: 50%;
-    position: absolute;
-    right: 0;
-    top: -1.3rem;
-    padding: 5px;
-    content: attr(number);
-    
+    padding: 4px;
+    color: #e8d4c5;
+    display: none;
 }
 
-#div-btn{
-    position: absolute;
-    right: 2.2rem;
-    bottom: 2.5rem;
-}
 
 .tickets-nuevos{
-    background: #cc6;
+    background: #3e3e3f;
+    color: #e8d4c5;
     width: fit-content;
     height: fit-content;
     position: absolute;
     z-index: 10;
     right: 0;
-    bottom: 5.9rem;
+    bottom: 6.7rem;
     margin-right: 20px;
     display: none;
+    padding: 5px;
+    max-height: 80vh;
+    overflow: scroll;
 }
 
 .tickets-nuevos.active{
     display: block;
 }
 
-section{
-    margin: 5px;
-    padding: 10px;
-    border: 1px solid #f00;
-    cursor: pointer;
-}
-
-.moreDetails{
+#moreDetails{
     position: absolute;
+    background-color: #e8d4c5;
     top: 0;
     right: 0;
     left: 0;
@@ -220,14 +245,47 @@ section{
     margin: auto;
     width: fit-content;
     height: fit-content;
-    background:#f00;
+    padding: 10px;
+    display: none;
+    border-radius: 10px;
+}
+
+#moreDetails.active{
+    display: block;
+}
+
+.tickets-container{
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 5px;
+    background-color: #e8d4c5;
 }
 
 
-section > p{
- text-align: left;
+.tickets-container > button{
+    align-self: center;
+    padding-top: 3px;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 3px;
+    border: none;
+    cursor: pointer;
+    background-color: #c9b29a;
+    color: #3e3e3f;
+    margin-top: 7px;
+    border-radius: 8px;
 }
 
-i{
-    float: right;
+.tickets-container > button:hover{
+   
+    color: #c9b29a;
+    background: #3e3e3f;
+    
 }
+
+
+
+  

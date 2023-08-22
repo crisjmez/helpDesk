@@ -7,7 +7,7 @@ class Conexion {
     private $username = "root";
     private $password = "";
     private $dbname = "help_desk";
-    private $port = "3306";
+    private $port = "3307";
 
     function get_conexion(){
 

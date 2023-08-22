@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     require_once('../models/user.php');
     require_once('../models/userDAO.php');
 
@@ -8,8 +8,8 @@
     $userDAO = new usuarioDAO();
 
     
-    if(!empty($_POST)and isset($_POST['btn-crear'])){
-         $userDAO->registrarNuevoUsuario($user);
+    if(!empty($_POST)and isset($_POST['btn-editar'])){
+        $userDAO->actualizar($user, $_SESSION['id']);
         header("location: ../views/bienvenida.php"); 
     }
     

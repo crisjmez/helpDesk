@@ -56,42 +56,31 @@
  
          }
  
-         function buscarPorUser(){
-             $stmt = $this->conn->get_conexion()->prepare("SELECT * FROM usuarios WHERE id_universitario = :id_universitario");
-             $stmt->bindParam(':id_universitario', $id_universitario);
-             $id_universitario = $_GET['id']; 
-             $stmt->execute();
+         function actualizar($usuario, $id){
  
-             $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
- 
-             $registro = $stmt->fetch();  
- 
-             $this->conn->cerrar_conexion();
- 
-             echo json_encode($registro);
- 
- 
-         }
- 
-         function actualizar($usuario){
- 
-             $stmt = $this->conn->get_conexion()->prepare("UPDATE usuarios SET nombres = :nombres, apellidos = :apellidos, email = :email, rol = :rol WHERE id_universitario = :id_universitario");
- 
-             $stmt->bindParam(":nombres", $nombre); 
-             $stmt->bindParam(':apellidos', $apellido);
-             $stmt->bindParam(':email', $email);
-             $stmt->bindParam(':rol', $rol);
-             $stmt->bindParam(':id_universitario', $id_universitario);
- 
-            
-             $nombre = $usuario->get_nombre(); 
-             $apellido = $usuario->get_apellido(); 
-             $email = $usuario->getEmail(); 
-             $rol = $usuario->getRol(); 
-             $id_universitario = $usuario->getId_universitario();
- 
-             $stmt->execute();
-             $this->conn->cerrar_conexion();
+            $stmt = $this->conn->get_conexion()->prepare("update usuarios set nombre = :nombre, apellido = :apellido , username = :username, pass = :pass, departamento = :departamento, puesto = :puesto, rol = :rol WHERE id_usuario = :id");
+        
+            $stmt->bindParam(":id", $id_p);  
+            $stmt->bindParam(":nombre", $nombre); 
+            $stmt->bindParam(':apellido', $apellido);
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':pass', $pass);
+            $stmt->bindParam(':departamento', $departamento);
+            $stmt->bindParam(':puesto', $puesto);
+            $stmt->bindParam(':rol', $rol);
+
+            $nombre = $usuario->get_nombre(); 
+            $apellido = $usuario->get_apellido(); 
+            $username = $usuario->get_username(); 
+            $pass = password_hash($usuario->get_pass(), PASSWORD_DEFAULT); 
+            $departamento = $usuario->get_departamento(); 
+            $puesto = $usuario->get_puesto(); 
+            $rol = $usuario->get_rol(); 
+            $id_p = $id;
+
+            $stmt->execute();
+  
+            $this->conn->cerrar_conexion();
  
  
          }

@@ -11,7 +11,7 @@
     <title>Home</title>
 </head>
 <body>
-    <div id="p-info">
+    <section id="p-info">
         <h1>
             <?php
                 echo $_SESSION['nombre'] ." " .  $_SESSION['apellido'];
@@ -19,18 +19,15 @@
         </h1>
         <h2>
             <?php
-                echo $_SESSION['puesto'];
+                echo $_SESSION['departamento'];
             ?>
         </h2>
         <h3>
             <?php
-                 echo $_SESSION['departamento'];
+                 echo $_SESSION['puesto'];
             ?>
         </h3>
-    </div>
-    <iframe class="tickets-nuevos">
-    </iframe>
-    <script type="module" src="../js/ticketsNotification.js"></script>
+    <section>
 </body>
 </html>
 

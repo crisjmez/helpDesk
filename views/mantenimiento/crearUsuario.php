@@ -49,7 +49,7 @@
             <select name="rol" id="rol" required>
                 <?php
                     foreach($roles as $rol){
-                        echo "<option value='${rol['id_rol']}'>${rol['nombre_roles']}</option>";
+                        echo "<option value='${rol['id_rol']}'>${rol['nombre_rol']}</option>";
                     }
                 ?>
             </select>

@@ -7,7 +7,8 @@ const menu = async ()=>{
     let user =  await fetchUser();
     let menuData = await fetch("../data/menu.json");
     let data = await menuData.json();
-    
+
+
     data.map(item =>{
         if(item.user_Allowed.includes(Number(user.rol))){
             if(item.hijos.length == 0){
@@ -16,7 +17,10 @@ const menu = async ()=>{
                 a.textContent = item.nombre;
                 a.href = "#";
                 a.addEventListener('click', (e)=>{
-                    if(item.id === 3){
+                    if(item.id === 1){
+                        a.href= `../views/${item.url}`;
+                    }
+                    else if(item.id === 4){
                         a.href= `../controllers/${item.url}`;
                     }
                     else{

@@ -20,6 +20,14 @@
         </nav>
     </div>
     <iframe src="./bienvenida.php" frameborder="0" width="100%" height="100%"></iframe>
+    <section id = "notification">
+        <button id="btn-nuevo-tickets">Nuevos Tickets</button>
+        <span id="no-tickets"></span>
+    </section>
+    <section class="tickets-nuevos">
+    </section>
+    <section id="moreDetails"></section>
+    <script type="module" src="../js/ticketsNotification.js"></script>
     <script type="module" src="../js/nav.js"></script>
 </body>
 </html>
