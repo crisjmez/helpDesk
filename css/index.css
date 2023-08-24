@@ -84,8 +84,16 @@ nav > ul{
 
 }
 
-nav > ul > li:not(:last-child){
+nav  ul > li{
     border-right: 1px solid #3e3e3f;
+}
+
+nav > ul > li:first-child{
+    border-left: 1px solid #3e3e3f;
+}
+
+.dropMenu_sub li {
+    border-left: 1px solid #3e3e3f;
 }
 
 
