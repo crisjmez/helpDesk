@@ -5,6 +5,7 @@ const divTicketsNuevos = document.querySelector(".tickets-nuevos");
 const btn_tickets = document.querySelector("#btn-nuevo-tickets");
 const span = document.querySelector("#no-tickets");
 const moreDetails = document.querySelector("#moreDetails");
+const iframe = document.querySelector("iframe")
 
 
 const popUpsTickets = async ()=>{
@@ -42,13 +43,14 @@ const popUpsTickets = async ()=>{
                 p_descripcion.style.display = 'block';
                 moreDetails.appendChild(div);
                 btn.textContent= "Cerrar detalles"
-                divTicketsNuevos.style.display = 'noneññ'
+                 iframe.style.display = "none"
             }
             else{
                 divTicketsNuevos.appendChild(div);
                 p_problema.style.display = 'none';
                 p_descripcion.style.display = 'none';
                 btn.textContent = "Ver mas detalles"
+                iframe.style.display = "block"
             }
             
         });
